@@ -1,22 +1,42 @@
+
 let botaoAtualizar = document.getElementById('atualizar-saldo');
 let botaoLimpar = document.getElementById('limpar-saldo');
-let soma = document.getElementById('soma');
+let soma = document.getElementById('soma') as HTMLInputElement;
 let campoSaldo = document.getElementById('campo-saldo');
 
-campoSaldo.innerHTML = 0;
+let saldoTotal = 0;
 
-function somarAoSaldo(soma) {
-    campoSaldo.innerHTML += soma;
+
+if (campoSaldo){
+    campoSaldo.innerHTML = '0';
+    
+}
+
+function somarAoSaldo(){
+    if (campoSaldo){
+
+        let saldo = parseInt(campoSaldo.innerHTML);
+        saldoTotal = Number(soma.value) + saldo ;
+        campoSaldo.innerHTML = saldoTotal.toString();
+    }
+    
 }
 
 function limparSaldo() {
-    campoSaldo.innerHTML = '';
+    if (campoSaldo){
+        campoSaldo.innerHTML = '0';
+    }
 }
 
-botaoAtualizar.addEventListener('click', function () {
-    somarAoSaldo(soma.value);
-});
+if (botaoAtualizar) {
+        botaoAtualizar.addEventListener('click', function () {
+        somarAoSaldo();
+    })
+}
 
-botaoLimpar.addEventListener('click', function () {
-    limparSaldo();
-});
+if (botaoLimpar) {
+    
+    botaoLimpar.addEventListener('click', function () {
+        limparSaldo();
+    })
+}
