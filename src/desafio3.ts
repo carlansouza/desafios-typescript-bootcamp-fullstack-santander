@@ -16,7 +16,7 @@ function somarAoSaldo(){
     if (campoSaldo){
 
         let saldo = parseInt(campoSaldo.innerHTML);
-        saldoTotal = Number(soma.value) + saldo ;
+        saldoTotal = Number(soma.value) + saldoTotal ;
         campoSaldo.innerHTML = saldoTotal.toString();
     }
     
